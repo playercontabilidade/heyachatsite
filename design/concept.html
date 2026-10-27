@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heya!Chat · conceito visual</title>
+<style>
+:root{
+  --ink-950:#05070D; --ink-900:#0A0F1C; --ink-850:#0F1629; --ink-800:#151E36;
+  --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.16);
+  --text:#EAF0FA; --text-dim:#9AA8C0;
+  --accent:#FF7A1A; --accent-ink:#0A0F1C; --glow:rgba(255,122,26,.18);
+  --violet:#7059C4; --ok:#3DDC97;
+  --paper:#F2F5F9; --paper-ink:#0A1226; --paper-dim:#51607A; --paper-accent:#C2410C;
+  --display:"Manrope","Inter Display","Inter",system-ui,sans-serif;
+  --body:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box} html{-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--ink-950);color:var(--text);font:400 17px/1.65 var(--body)}
+h1,h2,h3,p{margin:0}
+.wrap{width:min(1200px,100% - 80px);margin-inline:auto}
+.display{font-family:var(--display);font-weight:700;letter-spacing:-.045em;line-height:1.02}
+.kicker{font:600 13px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.light .kicker{color:var(--paper-accent)}
+.btn{display:inline-flex;align-items:center;gap:10px;height:54px;padding:0 28px;border-radius:999px;font:600 16px/1 var(--body);border:1.5px solid transparent;white-space:nowrap}
+.btn-p{background:var(--accent);color:var(--accent-ink);box-shadow:0 18px 50px -14px rgba(255,122,26,.7)}
+.btn-s{border-color:var(--line-2);color:var(--text)}
+.btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* header */
+.hd{position:absolute;inset:0 0 auto 0;z-index:10}
+.hd .wrap{display:flex;align-items:center;height:92px;gap:40px}
+.brand{display:flex;align-items:center;gap:10px;font:800 20px/1 var(--display);letter-spacing:-.02em}
+.brand img{width:34px;height:34px}.brand b{color:var(--accent)}
+.nav{display:flex;gap:6px;margin-left:auto}
+.nav a{padding:10px 16px;border-radius:999px;font:500 15px/1 var(--body);color:var(--text-dim)}
+.hd .btn{height:46px;padding:0 22px;font-size:15px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:var(--ink-900);padding:170px 0 120px;text-align:center}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1.5px);background-size:28px 28px;-webkit-mask-image:radial-gradient(900px 560px at 50% 36%,#000,transparent 75%);mask-image:radial-gradient(900px 560px at 50% 36%,#000,transparent 75%)}
+.hero::after{content:"";position:absolute;left:50%;bottom:-240px;width:1400px;height:640px;transform:translateX(-50%);background:radial-gradient(closest-side,var(--glow),transparent)}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{font-size:104px;max-width:1000px;margin:0 auto}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.lede{font-size:21px;line-height:1.6;color:var(--text-dim);max-width:680px;margin:28px auto 0}
+.cta{display:flex;justify-content:center;gap:14px;margin-top:40px}
+.proof{display:flex;justify-content:center;gap:28px;margin-top:28px;font:500 14px/1 var(--body);color:var(--text-dim)}
+.proof span{display:flex;align-items:center;gap:8px}
+.proof i{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.stage{position:relative;width:1080px;margin:84px auto 0}
+.slab{position:absolute;left:50%;top:-70px;bottom:-110px;width:330px;transform:translateX(-50%);background:linear-gradient(180deg,#FF7A1A,#E8650A);border-radius:6px}
+.slab::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(10,15,28,.22) 1.5px,transparent 2px);background-size:18px 18px;opacity:.5}
+.frame{position:relative;background:var(--ink-850);border:1px solid var(--line-2);border-radius:28px;overflow:hidden;box-shadow:0 60px 140px -40px rgba(0,0,0,.8),0 0 0 8px rgba(255,255,255,.03)}
+.frame .bar{display:flex;align-items:center;gap:7px;height:42px;padding:0 18px;background:var(--ink-800);border-bottom:1px solid var(--line);font:500 12px/1 var(--body);color:var(--text-dim);text-align:left}
+.frame .bar i{width:10px;height:10px;border-radius:50%;background:#2A3553}
+.frame .bar span{margin-left:10px}
+.frame img{display:block;width:100%;height:auto}
+.chip{position:absolute;z-index:4;display:flex;align-items:center;gap:12px;padding:13px 18px;border-radius:16px;background:rgba(15,22,41,.92);border:1px solid var(--line-2);box-shadow:0 30px 70px -24px rgba(0,0,0,.9);font:600 14px/1.25 var(--body);color:var(--text);text-align:left}
+.chip small{display:block;font:400 12px/1.3 var(--body);color:var(--text-dim);margin-top:2px}
+.chip .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(255,122,26,.2)}
+.chip .ic{width:34px;height:34px;border-radius:10px;background:var(--ink-800);display:grid;place-items:center;color:var(--accent)}
+.chip .ic svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.wave{display:flex;align-items:center;gap:3px;height:28px}
+.wave i{width:3px;border-radius:2px;background:var(--accent)}
+.c1{left:-150px;top:70px}.c2{right:-170px;top:30px}.c3{left:-110px;bottom:70px}.c4{right:-120px;bottom:120px}
+
+/* seção */
+.sec{padding:140px 0;position:relative}
+.dark{background:var(--ink-900)}.dark2{background:var(--ink-950)}
+/* transições suaves entre seções claras e escuras: o degradê ocupa só o padding, o conteúdo fica sobre cor sólida */
+.light{background:var(--paper);color:var(--paper-ink);padding:220px 0;--from:var(--ink-950);--to:var(--ink-900)}
+.light>.wrap{position:relative;z-index:1}
+.light::before,.light::after{content:"";position:absolute;left:0;right:0;height:220px;pointer-events:none}
+.light::before{top:0;background:linear-gradient(180deg,var(--from) 0%,color-mix(in srgb,var(--from) 92%,var(--paper)) 8%,color-mix(in srgb,var(--from) 72%,var(--paper)) 22%,color-mix(in srgb,var(--from) 45%,var(--paper)) 40%,color-mix(in srgb,var(--from) 22%,var(--paper)) 58%,color-mix(in srgb,var(--from) 8%,var(--paper)) 78%,var(--paper) 100%)}
+.light::after{bottom:0;background:linear-gradient(0deg,var(--to) 0%,color-mix(in srgb,var(--to) 92%,var(--paper)) 8%,color-mix(in srgb,var(--to) 72%,var(--paper)) 22%,color-mix(in srgb,var(--to) 45%,var(--paper)) 40%,color-mix(in srgb,var(--to) 22%,var(--paper)) 58%,color-mix(in srgb,var(--to) 8%,var(--paper)) 78%,var(--paper) 100%)}
+.light .sub{color:var(--paper-dim)}
+.sub{color:var(--text-dim)}
+h2.display{font-size:64px;line-height:1.04}
+
+/* caos -> fila */
+.split{display:grid;grid-template-columns:1fr 1.05fr;gap:80px;align-items:center}
+.split p.sub{font-size:20px;margin-top:28px;max-width:520px}
+.chaos{position:relative;height:500px}
+.dev{position:absolute;left:0;width:190px;padding:16px 18px;border-radius:22px;background:var(--ink-850);border:1px solid var(--line-2)}
+.dev b{display:block;font:700 15px/1.2 var(--body)} .dev small{color:var(--text-dim);font-size:12.5px}
+.dev .n{position:absolute;right:14px;top:14px;min-width:24px;height:24px;border-radius:12px;background:var(--accent);color:var(--accent-ink);font:800 12px/24px var(--body);text-align:center}
+.dev.a{top:20px}.dev.b{top:190px;left:28px}.dev.c{top:360px}
+.queue{position:absolute;right:0;top:50px;width:316px;border-radius:26px;background:var(--ink-850);border:1px solid var(--line-2);box-shadow:0 0 120px -20px var(--glow);overflow:hidden}
+.queue header{padding:16px 20px;border-bottom:1px solid var(--line);font:700 15px/1 var(--body);display:flex;justify-content:space-between;align-items:center}
+.queue header em{font-style:normal;font-weight:600;font-size:12px;color:var(--ok)}
+.row{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.row:last-child{border:0}
+.av{width:38px;height:38px;border-radius:50%;background:#26315A;display:grid;place-items:center;font:700 13px/1 var(--body);color:#C9D3EE}
+.row b{display:block;font:600 14px/1.2 var(--body)} .row small{color:var(--text-dim);font-size:12px}
+.tag{margin-left:auto;font:700 11px/1 var(--body);padding:5px 9px;border-radius:999px;background:rgba(61,220,151,.14);color:var(--ok)}
+.tag.o{background:rgba(255,122,26,.16);color:#FF9A4D}
+svg.lines{position:absolute;inset:0;width:100%;height:100%}
+svg.lines path{fill:none;stroke:url(#g);stroke-width:2.5;stroke-dasharray:3 8;stroke-linecap:round}
+
+/* fluxo */
+.flow{margin-top:72px;position:relative}
+.flow .track{position:absolute;left:5%;right:5%;top:30px;height:2px;background:linear-gradient(90deg,var(--violet),var(--accent))}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;position:relative}
+.step{padding-top:0}
+.num{width:62px;height:62px;border-radius:50%;background:var(--paper);border:2px solid var(--paper-ink);display:grid;place-items:center;font:800 20px/1 var(--display);position:relative;margin-bottom:26px}
+.step.on .num{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);box-shadow:0 0 0 8px rgba(255,122,26,.18)}
+.step h3{font:700 22px/1.2 var(--display);letter-spacing:-.02em}
+.step p{font-size:15px;line-height:1.55;color:var(--paper-dim);margin-top:8px}
+.mini{margin-top:20px;padding:14px;border-radius:16px;background:#fff;border:1px solid #DFE5EE;box-shadow:0 20px 40px -28px rgba(10,18,38,.4);font-size:13px;line-height:1.35}
+.mini .b{padding:9px 12px;border-radius:12px;background:#EEF2F8;display:block}
+.mini .btns{display:flex;gap:8px}.mini .btns i{flex:1;text-align:center;font-style:normal;font-weight:700;padding:9px 0;border-radius:10px;background:#EEF2F8}
+.mini .btns i.p{background:#6F5BC3;color:#fff}
+.mini .st{display:inline-block;font-weight:700;font-size:12px;padding:5px 10px;border-radius:999px;background:#E3F6EC;color:#157347}
+.mini .rw{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.mini .nv{font-size:11px;font-weight:700;padding:4px 8px;border-radius:999px;background:#DFF3E7;color:#157347}
+.mini .chips{display:flex;flex-wrap:wrap;gap:6px}.mini .chips i{font-style:normal;font-size:12px;font-weight:600;padding:5px 9px;border-radius:999px;background:#EEF2F8}
+
+/* bento */
+.bhead{display:flex;justify-content:space-between;align-items:flex-end;gap:60px;margin-bottom:56px}
+.bhead p{max-width:420px;font-size:18px}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+.card{position:relative;border-radius:28px;background:var(--ink-850);border:1px solid var(--line);overflow:hidden;padding:34px 36px 0;display:flex;flex-direction:column}
+.card h3{font:700 30px/1.12 var(--display);letter-spacing:-.03em}
+.card p{color:var(--text-dim);font-size:16px;line-height:1.55;margin-top:12px;max-width:460px}
+.card .shot{margin:30px -36px 0;border-top:1px solid var(--line);flex:1;min-height:0;overflow:hidden}
+.card .shot{position:relative}.card .shot::after{content:'';position:absolute;left:0;right:0;bottom:0;height:70px;background:linear-gradient(transparent,var(--ink-850))}
+.card .shot img{display:block;width:100%;height:auto;max-width:none}
+.c-fila .shot img{width:150%}.c-crm .shot img{width:215%}.c-cal .shot img{width:250%;margin-left:-92%;margin-top:-6%}.c-rel .shot img{width:112%}
+.c-fila{grid-column:span 7;height:560px}.c-crm{grid-column:span 5;height:560px}
+.c-rel{grid-column:span 8;height:560px}.c-cal{grid-column:span 4;height:560px}
+.c-bot{grid-column:span 12;padding-bottom:36px}
+.c-fila::after,.c-rel::after{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--accent),transparent 60%)}
+.tagline{display:inline-flex;align-items:center;gap:8px;font:600 12px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.tagline i{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.bot{display:grid;grid-template-columns:.9fr 1.4fr;gap:48px;align-items:center;margin-top:0}
+.nodes{display:flex;align-items:center;gap:0;position:relative;padding:10px 0}
+.node{flex:none;padding:14px 18px;border-radius:16px;background:var(--ink-800);border:1px solid var(--line-2);font:600 14px/1.25 var(--body);text-align:center;min-width:118px}
+.node small{display:block;font:400 11.5px/1.3 var(--body);color:var(--text-dim);margin-top:3px}
+.node.hot{border-color:var(--accent);box-shadow:0 0 0 6px rgba(255,122,26,.14)}
+.link{flex:1;height:2px;background:linear-gradient(90deg,var(--violet),var(--accent));min-width:24px}
+
+/* cta */
+.final{position:relative;overflow:hidden;text-align:center;padding:170px 0;background:linear-gradient(180deg,var(--ink-900),var(--ink-950) 260px)}
+.final::before{content:"";position:absolute;left:50%;bottom:-420px;width:1500px;height:800px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(255,122,26,.30),transparent)}
+.final .wrap{position:relative}
+.final h2{font-size:112px}
+.final p{font-size:21px;color:var(--text-dim);margin-top:24px}
+.final .cta{margin-top:44px}
+footer{background:var(--ink-950);border-top:1px solid var(--line);padding:36px 0;color:var(--text-dim);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center}
+</style>
+</head>
+<body>
+
+<!-- 1 · HERO -->
+<section class="hero" id="s-hero">
+  <div class="hd"><div class="wrap">
+    <a class="brand"><img src="../images/logo-mark.png" alt=""><span>HEYA<b>!</b>CHAT</span></a>
+    <nav class="nav"><a>Atendimento</a><a>WhatsApp</a><a>CRM</a><a>Robô</a><a>Painel</a><a>Perguntas</a></nav>
+    <a class="btn btn-p">Falar com a equipe</a>
+  </div></div>
+
+  <div class="wrap">
+    <h1 class="display">Nenhuma<br>conversa <em>se perde.</em></h1>
+    <p class="lede">Todos os números de WhatsApp da empresa numa central só. Fila, equipe, CRM e relatórios, com o histórico na conta da empresa, não no celular de alguém.</p>
+    <div class="cta"><a class="btn btn-p">Falar com a equipe <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-s">Entrar</a></div>
+    <div class="proof"><span><i></i>Conexão oficial com o WhatsApp</span><span><i></i>Fila única para todos os números</span><span><i></i>Histórico fica com a empresa</span></div>
+
+    <div class="stage">
+      <div class="slab"></div>
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Conversas · Heya!Chat</span></div><img src="../images/tela-chat.webp" alt=""></div>
+
+      <div class="chip c1"><span class="dot"></span><div>Nova mensagem<small>Vendas · agora</small></div></div>
+      <div class="chip c2"><span class="ic"><svg viewBox="0 0 24 24"><path d="M7 7h12l-3-3M17 17H5l3 3"/></svg></span><div>Conversa transferida<small>Suporte → Financeiro</small></div></div>
+      <div class="chip c3"><div class="wave" aria-hidden="true"><i style="height:8px"></i><i style="height:16px"></i><i style="height:24px"></i><i style="height:12px"></i><i style="height:20px"></i><i style="height:28px"></i><i style="height:14px"></i><i style="height:22px"></i><i style="height:10px"></i><i style="height:18px"></i></div><div>Áudio · 0:42<small>Cliente, Filial</small></div></div>
+      <div class="chip c4"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.2 3.2 7.4 8 9 4.8-1.6 8-4.8 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><div>Modelo oficial enviado<small>pelo número da empresa</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · CAOS -> FILA -->
+<section class="sec dark2" id="s-caos">
+  <div class="wrap split">
+    <div>
+      <p class="kicker">O problema</p>
+      <h2 class="display" style="margin-top:22px">A conversa mora no celular de alguém. Quando essa pessoa sai, ela vai junto.</h2>
+      <p class="sub">Com a Heya!Chat, o número é da empresa, a fila é do time e o histórico fica na conta. Quem atende pode mudar. O fio continua.</p>
+    </div>
+    <div class="chaos">
+      <svg class="lines" viewBox="0 0 574 500"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#7059C4"/><stop offset="1" stop-color="#FF7A1A"/></linearGradient></defs><path d="M190 66 C 226 66, 222 130, 258 130"/><path d="M218 236 C 238 236, 240 215, 258 215"/><path d="M190 406 C 226 406, 222 300, 258 290"/></svg>
+      <div class="dev a"><span class="n">3</span><b>Vendas</b><small>celular do Marcos</small></div>
+      <div class="dev b"><span class="n">1</span><b>Suporte</b><small>celular da Ana</small></div>
+      <div class="dev c"><span class="n">5</span><b>Filial</b><small>celular do Paulo</small></div>
+      <div class="queue">
+        <header>Fila única <em>● ao vivo</em></header>
+        <div class="row"><span class="av">CD</span><div><b>Carolina Dias</b><small>Vendas · há 2 min</small></div><span class="tag o">Nova</span></div>
+        <div class="row"><span class="av">JM</span><div><b>João Matos</b><small>Suporte · há 8 min</small></div><span class="tag o">Nova</span></div>
+        <div class="row"><span class="av">RA</span><div><b>Renato Alves</b><small>Filial · em atendimento</small></div><span class="tag">Atendendo</span></div>
+        <div class="row"><span class="av">AB</span><div><b>Ana Beatriz</b><small>Vendas · resolvida</small></div><span class="tag">Resolvida</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · FLUXO -->
+<section class="sec light" id="s-fluxo">
+  <div class="wrap">
+    <p class="kicker">O caminho de uma conversa</p>
+    <h2 class="display" style="margin-top:22px;max-width:900px">Do primeiro oi ao fechamento, sem ponto cego.</h2>
+    <div class="flow">
+      <div class="track"></div>
+      <div class="steps">
+        <div class="step"><div class="num">1</div><h3>Chega</h3><p>Por qualquer um dos números da empresa, pela conexão oficial.</p>
+          <div class="mini"><span class="b">Preciso de ajuda com a nota fiscal</span></div></div>
+        <div class="step"><div class="num">2</div><h3>Entra na fila</h3><p>Status, prioridade e tempo de espera à vista de todos.</p>
+          <div class="mini"><div class="rw"><b>Carolina Dias</b><span class="nv">Nova</span></div><span style="color:#51607A">Loja Central · há 2 min</span></div></div>
+        <div class="step on"><div class="num">3</div><h3>Alguém assume</h3><p>Aceita, recusa ou transfere para outra pessoa ou departamento.</p>
+          <div class="mini"><div class="btns"><i>Recusar</i><i class="p">Aceitar</i></div></div></div>
+        <div class="step"><div class="num">4</div><h3>Atende</h3><p>Texto, áudio, arquivo e comentário interno, no mesmo fio.</p>
+          <div class="mini"><div class="chips"><i>Comentário interno</i><i>PDF</i><i>Transferir</i></div></div></div>
+        <div class="step"><div class="num">5</div><h3>Fecha</h3><p>Resolvida, vira lead no CRM e entra nos relatórios.</p>
+          <div class="mini"><span class="st">Resolvida</span> &nbsp;<span style="color:#51607A">lead criado</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · BENTO -->
+<section class="sec dark" id="s-bento">
+  <div class="wrap">
+    <div class="bhead">
+      <div><p class="kicker">A plataforma</p><h2 class="display" style="margin-top:22px;max-width:760px">Tudo o que o atendimento precisa, numa tela só.</h2></div>
+      <p class="sub">Telas reais do sistema. Dados de exemplo.</p>
+    </div>
+    <div class="bento">
+      <article class="card c-fila"><span class="tagline"><i></i>Fila</span><h3>Quem espera, há quanto tempo, com quem.</h3><p>Mensagens novas e transferências chegando. O atendente aceita ou recusa.</p><div class="shot"><img src="../images/tela-fila.webp" alt=""></div></article>
+      <article class="card c-crm"><span class="tagline"><i></i>CRM</span><h3>O funil acompanha a conversa.</h3><p>Lead, em conversa, proposta, fechado.</p><div class="shot"><img src="../images/tela-crm.webp" alt=""></div></article>
+      <article class="card c-rel"><span class="tagline"><i></i>Relatórios</span><h3>O ritmo do time, ao vivo.</h3><p>Atendimentos recebidos, primeira resposta, resolução, ranking e fila em tempo real.</p><div class="shot"><img src="../images/tela-relatorios.webp" alt=""></div></article>
+      <article class="card c-cal"><span class="tagline"><i></i>Reuniões</span><h3>A chamada sem sair do atendimento.</h3><p>Agenda e sala de vídeo.</p><div class="shot"><img src="../images/tela-calendario.webp" alt=""></div></article>
+      <article class="card c-bot"><div class="bot">
+        <div><span class="tagline"><i></i>Robô · módulo opcional</span><h3>Atende até a hora de chamar uma pessoa.</h3><p>Fluxo visual com nós e ligações e transferência para atendimento humano.</p></div>
+        <div class="nodes">
+          <div class="node">Início</div><span class="link"></span>
+          <div class="node">Saudação</div><span class="link"></span>
+          <div class="node">Menu<small>Financeiro · Entregas · Grupos</small></div><span class="link"></span>
+          <div class="node hot">Atendente<small>transferido</small></div>
+        </div>
+      </div></article>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · CTA -->
+<section class="final" id="s-cta">
+  <div class="wrap">
+    <h2 class="display">Os números<br>ficam aqui.</h2>
+    <p>Entre com a sua conta para abrir a central.</p>
+    <div class="cta"><a class="btn btn-p">Falar com a equipe <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-s">Entrar na plataforma</a></div>
+  </div>
+</section>
+<footer><div class="wrap"><span class="brand" style="font-size:16px"><img src="../images/logo-mark.png" alt="" style="width:26px;height:26px">HEYA<b>!</b>CHAT</span><span>Vários números. Uma central.</span><span>© 2026 HEYA!CHAT</span></div></footer>
+
+</body>
+</html>

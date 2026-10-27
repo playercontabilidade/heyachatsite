@@ -1,0 +1,11 @@
+---
+description: Regras da landing Heya!Chat v2 (Sinal noturno)
+alwaysApply: true
+---
+- Leia `AGENTS.md` e `DESIGN.md` antes de editar. Fidelidade ao `design/concept.html`.
+- HTML/CSS/JS puros, `file://`, scripts clássicos com `defer`, caminhos relativos, sem módulos, sem fetch local, sem CDN.
+- Único botão de ação: Entrar / Entrar na plataforma. Sem "Falar com a equipe". Seções alternam azul-noite e branco em corte reto; sem seção laranja nem degradê entre módulos. Telas da plataforma grandes e soltas (abas + ampliar só trocam/abrem a imagem).
+- Proibido: simular o uso do app (aceitar/recusar, digitar, arrastar, simulador; abas e ampliação só escolhem e abrem a imagem estática), iframe, demonstração/demo (a palavra inclusive), processo ágil, checklist, métricas ou depoimentos inventados, selo acima do h1, emoji como ícone.
+- Tokens só por variável CSS definida em `DESIGN.md`. Botão primário: `--accent-ink` sobre `--accent`.
+- Movimento só `transform`/`opacity`, curva `cubic-bezier(.22,1,.36,1)`, e estático em `prefers-reduced-motion`.
+- Não editar nada fora desta pasta.

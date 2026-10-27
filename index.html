@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heya!Chat · Vários números. Uma central.</title>
+<meta name="description" content="Central de atendimento e CRM para WhatsApp: fila única, equipe, relatórios e histórico na conta da empresa.">
+<meta name="theme-color" content="#05070D">
+<meta property="og:title" content="Heya!Chat · Vários números. Uma central.">
+<meta property="og:description" content="Central de atendimento e CRM para WhatsApp: fila única, equipe, relatórios e histórico na conta da empresa.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="images/logo-mark.png">
+<link rel="icon" href="images/logo-mark.png" type="image/png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#inicio">Pular para o conteúdo</a>
+
+<svg class="sprite" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path d="m5 12 5 5L20 7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-transfer" viewBox="0 0 24 24">
+      <path d="M7 7h12l-3-3M17 17H5l3 3" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24">
+      <path d="M4 5h16v11H9.5L4 20V5Z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-queue" viewBox="0 0 24 24">
+      <path d="M4 6h16M4 12h16M4 18h10" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-archive" viewBox="0 0 24 24">
+      <path d="M4 7h16v4H4zM6 11v8h12v-8M10 15h4" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24">
+      <path d="M5 20V10M12 20V4M19 20v-7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24">
+      <path d="M12 3 4 6v6c0 4.2 3.2 7.4 8 9 4.8-1.6 8-4.8 8-9V6l-8-3Z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="m9 12 2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24">
+      <path d="M5 6h14v13H5zM5 10h14M8 4v4M16 4v4" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24">
+      <path d="M12 4a3 3 0 0 1 3 3v5a3 3 0 0 1-6 0V7a3 3 0 0 1 3-3Z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M6 11a6 6 0 0 0 12 0M12 17v3" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24">
+      <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-close" viewBox="0 0 24 24">
+      <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-zoom" viewBox="0 0 24 24">
+      <circle cx="10.5" cy="10.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.75"/>
+      <path d="m15 15 5 5M10.5 8v5M8 10.5h5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="hd" data-header>
+  <div class="wrap hd-bar">
+    <a class="brand" href="#inicio">
+      <img src="images/logo-mark.png" alt="" width="64" height="64">
+      <span>HEYA<b>!</b>CHAT</span>
+    </a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#atendimento" data-nav>Atendimento</a>
+      <a href="#whatsapp" data-nav>WhatsApp</a>
+      <a href="#crm" data-nav>CRM</a>
+      <a href="#robo" data-nav>Robô</a>
+      <a href="#painel" data-nav>Relatórios</a>
+      <a href="#faq" data-nav>Perguntas</a>
+    </nav>
+    <a class="btn btn-p btn-sm" href="https://app.heyachat.com.br">Entrar</a>
+    <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="menu">
+      <svg class="icon ico-open" aria-hidden="true"><use href="#i-menu"/></svg>
+      <svg class="icon ico-close" aria-hidden="true"><use href="#i-close"/></svg>
+      <span class="sr">Menu</span>
+    </button>
+  </div>
+  <div class="nav-panel" id="menu" data-nav-panel hidden>
+    <nav aria-label="Seções">
+      <a href="#atendimento" data-nav>Atendimento</a>
+      <a href="#whatsapp" data-nav>WhatsApp</a>
+      <a href="#crm" data-nav>CRM</a>
+      <a href="#robo" data-nav>Robô</a>
+      <a href="#painel" data-nav>Relatórios</a>
+      <a href="#faq" data-nav>Perguntas</a>
+    </nav>
+    <a class="btn btn-p" href="https://app.heyachat.com.br">Entrar na plataforma <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio" aria-labelledby="inicio-title">
+    <div class="hp">
+      <div class="hp-media" data-hp>
+        <img class="hp-photo" src="images/hero-mulher.webp" width="1376" height="768" alt="Atendente de blazer laranja sorrindo enquanto responde uma conversa no celular.">
+        <svg class="hp-trail" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+          <defs>
+            <mask id="hp-mask" maskUnits="userSpaceOnUse" x="-200" y="-200" width="1800" height="1200">
+              <path data-hp-reveal d="M900,-40 C883,-25 832,20 800,50 C768,80 730,109 705,140 C680,171 658,204 650,235 C642,266 648,302 660,325 C672,348 702,370 722,372 C742,374 774,355 782,338 C790,321 780,282 768,268 C756,254 729,247 712,252 C695,257 677,278 668,300 C659,322 656,359 660,385 C664,411 672,437 690,458 C708,479 755,503 768,512" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round"/>
+            </mask>
+          </defs>
+          <path data-hp-path d="M900,-40 C883,-25 832,20 800,50 C768,80 730,109 705,140 C680,171 658,204 650,235 C642,266 648,302 660,325 C672,348 702,370 722,372 C742,374 774,355 782,338 C790,321 780,282 768,268 C756,254 729,247 712,252 C695,257 677,278 668,300 C659,322 656,359 660,385 C664,411 672,437 690,458 C708,479 755,503 768,512" fill="none" stroke="#FF7A1A" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="2 13" mask="url(#hp-mask)"/>
+        </svg>
+        <span class="hp-logo" data-hp-logo aria-hidden="true"><img src="images/logo-mark.png" width="64" height="64" alt=""></span>
+      </div>
+      <div class="hp-copy">
+        <div class="wrap">
+          <h1 class="display" id="inicio-title">
+            <span class="ln"><span class="rise">Nenhuma</span></span>
+            <span class="ln"><span class="rise d1">conversa</span></span>
+            <span class="ln"><em class="rise d2">se perde.</em></span>
+          </h1>
+          <p class="lede">Todos os números de WhatsApp da empresa numa central só. Fila, equipe, CRM e relatórios, com o histórico na conta da empresa, não no celular de alguém.</p>
+          <div class="cta">
+            <a class="btn btn-p" href="https://app.heyachat.com.br">Entrar na plataforma <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+          <ul class="proof">
+            <li><i aria-hidden="true"></i>Vários números do WhatsApp</li>
+            <li><i aria-hidden="true"></i>Equipe, CRM e relatórios no mesmo lugar</li>
+            <li><i aria-hidden="true"></i>Modelos oficiais de mensagem</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="sec light" id="visao" aria-labelledby="visao-title">
+    <div class="wrap split">
+      <div class="reveal">
+        <p class="kicker">O problema</p>
+        <h2 class="display" id="visao-title">A conversa mora no celular de alguém. Quando essa pessoa sai, ela vai junto.</h2>
+        <p class="sub">Com a Heya!Chat, o número é da empresa, a fila é do time e o histórico fica na conta. Quem atende pode mudar. O fio continua.</p>
+      </div>
+      <div class="scene reveal" data-switch>
+        <div class="switch" role="group" aria-label="Comparar o atendimento">
+          <button type="button" data-mode="sem" aria-pressed="false">Sem o Heya!Chat</button>
+          <button type="button" data-mode="com" aria-pressed="true">Com o Heya!Chat</button>
+        </div>
+        <div class="chaos" data-chaos data-mode="com">
+          <svg class="lines" viewBox="0 0 574 500" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M190 66 C 226 66, 222 130, 258 130"/>
+            <path d="M218 236 C 238 236, 240 215, 258 215"/>
+            <path d="M190 406 C 226 406, 222 300, 258 290"/>
+          </svg>
+          <div class="phones">
+            <div class="dev a"><span class="n">3</span><b>Vendas</b><small>celular do Marcos</small></div>
+            <div class="dev b"><span class="n">1</span><b>Suporte</b><small>celular da Ana</small></div>
+            <div class="dev c"><span class="n">5</span><b>Filial</b><small>celular do Paulo</small></div>
+          </div>
+          <div class="queue" data-panel="com">
+            <header>Fila única <em><i aria-hidden="true"></i> ao vivo</em></header>
+            <div class="row"><span class="av" aria-hidden="true">CD</span><div><b>Carolina Dias</b><small>Vendas · há 2 min</small></div><span class="tag o">Nova</span></div>
+            <div class="row"><span class="av" aria-hidden="true">JM</span><div><b>João Matos</b><small>Suporte · há 8 min</small></div><span class="tag o">Nova</span></div>
+            <div class="row"><span class="av" aria-hidden="true">RA</span><div><b>Renato Alves</b><small>Filial · em atendimento</small></div><span class="tag">Atendendo</span></div>
+            <div class="row"><span class="av" aria-hidden="true">AB</span><div><b>Ana Beatriz</b><small>Vendas · resolvida</small></div><span class="tag">Resolvida</span></div>
+          </div>
+          <div class="lost" data-panel="sem" aria-hidden="true">
+            <header>Sem fila única <em>ninguém vê o todo</em></header>
+            <div class="row"><span class="av" aria-hidden="true">V</span><div><b>Vendas</b><small>no celular do Marcos</small></div><span class="tag w">Sem acesso</span></div>
+            <div class="row"><span class="av" aria-hidden="true">S</span><div><b>Suporte</b><small>no celular da Ana</small></div><span class="tag w">Sem acesso</span></div>
+            <div class="row"><span class="av" aria-hidden="true">F</span><div><b>Filial</b><small>no celular do Paulo</small></div><span class="tag w">Sem acesso</span></div>
+            <div class="row note"><div><b>Se o Marcos sair, o histórico sai junto.</b></div></div>
+          </div>
+        </div>
+        <p class="scene-cap" data-caption aria-live="polite">Todos os números na mesma fila. O histórico fica com a empresa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="central" aria-labelledby="central-title">
+    <div class="wrap">
+      <div class="reveal central-head">
+        <p class="kicker">A central</p>
+        <h2 class="display" id="central-title">Três números, uma só fila.</h2>
+        <p class="sub">Cada número da empresa se liga à Heya!Chat pela conexão oficial. Dali, as conversas caem na mesma fila, com status, prioridade e tempo de espera.</p>
+      </div>
+
+      <div class="conv reveal">
+        <ul class="conv-src" aria-label="Números conectados (exemplo)">
+          <li class="src hov"><span class="ic" aria-hidden="true"><svg class="icon"><use href="#i-chat"/></svg></span><div><b>Vendas</b><small>+55 11 90000-1200</small></div><span class="st"><i aria-hidden="true"></i>Conectado</span></li>
+          <li class="src hov"><span class="ic" aria-hidden="true"><svg class="icon"><use href="#i-chat"/></svg></span><div><b>Suporte</b><small>+55 11 90000-3400</small></div><span class="st"><i aria-hidden="true"></i>Conectado</span></li>
+          <li class="src hov"><span class="ic" aria-hidden="true"><svg class="icon"><use href="#i-chat"/></svg></span><div><b>Filial</b><small>+55 21 90000-2100</small></div><span class="st"><i aria-hidden="true"></i>Conectado</span></li>
+        </ul>
+        <div class="conv-link" aria-hidden="true">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0 15 C 32 15, 28 50, 60 50"/>
+            <path d="M0 50 L60 50"/>
+            <path d="M0 85 C 32 85, 28 50, 60 50"/>
+            <path d="M60 50 L100 50"/>
+          </svg>
+          <span class="badge"><img src="images/logo-mark.png" width="64" height="64" alt=""></span>
+        </div>
+        <div class="conv-dst">
+          <button class="zoom" type="button" data-zoom data-full="images/tela-fila.webp" data-title="Fila de atendimento" aria-label="Ampliar a tela: fila de atendimento">
+            <span class="bar" aria-hidden="true"><i></i><i></i><i></i><span>Fila · Heya!Chat</span></span>
+            <img src="images/tela-fila.webp" width="2040" height="1230" loading="lazy" alt="Fila de atendimento do Heya!Chat, com as conversas de todos os números, tempo de espera e quem atende. Dados de exemplo.">
+            <span class="hint" aria-hidden="true"><svg class="icon"><use href="#i-zoom"/></svg>Ampliar</span>
+          </button>
+        </div>
+      </div>
+
+      <ul class="pills reveal" aria-label="Quem trabalha na fila">
+        <li class="hov">Atendentes</li><li class="hov">Supervisores</li><li class="hov">Robô opcional</li><li class="hov">Painel para TV</li>
+      </ul>
+      <p class="dg-note">Números e status de exemplo.</p>
+    </div>
+  </section>
+
+  <section class="sec light" id="fluxo" aria-labelledby="fluxo-title">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="kicker">O caminho de uma conversa</p>
+        <h2 class="display" id="fluxo-title">Do primeiro oi ao fechamento, sem ponto cego.</h2>
+      </div>
+      <div class="flow reveal" data-flow>
+        <div class="track" aria-hidden="true"></div>
+        <ol class="steps">
+          <li class="step hov">
+            <div class="num" aria-hidden="true">1</div>
+            <h3>Chega</h3>
+            <p>Por qualquer um dos números da empresa, pela conexão oficial.</p>
+            <div class="mini" aria-hidden="true"><span class="b">Preciso de ajuda com a nota fiscal</span></div>
+          </li>
+          <li class="step hov">
+            <div class="num" aria-hidden="true">2</div>
+            <h3>Entra na fila</h3>
+            <p>Status, prioridade e tempo de espera à vista de todos.</p>
+            <div class="mini" aria-hidden="true"><div class="rw"><b>Carolina Dias</b><span class="nv">Nova</span></div><span class="meta">Loja Central · há 2 min</span></div>
+          </li>
+          <li class="step on hov">
+            <div class="num" aria-hidden="true">3</div>
+            <h3>Alguém assume</h3>
+            <p>Aceita, recusa ou transfere para outra pessoa ou departamento.</p>
+            <div class="mini" aria-hidden="true"><div class="btns"><span>Recusar</span><span class="p">Aceitar</span></div></div>
+          </li>
+          <li class="step hov">
+            <div class="num" aria-hidden="true">4</div>
+            <h3>Atende</h3>
+            <p>Texto, áudio, arquivo e comentário interno, no mesmo fio.</p>
+            <div class="mini" aria-hidden="true"><div class="chips"><span>Comentário interno</span><span>PDF</span><span>Transferir</span></div></div>
+          </li>
+          <li class="step hov">
+            <div class="num" aria-hidden="true">5</div>
+            <h3>Fecha</h3>
+            <p>Resolvida, vira lead no CRM e entra nos relatórios.</p>
+            <div class="mini" aria-hidden="true"><span class="st">Resolvida</span> <span class="meta">lead criado</span></div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="plataforma" aria-labelledby="plataforma-title">
+    <div class="wrap">
+      <div class="bhead reveal">
+        <div>
+          <p class="kicker">A plataforma</p>
+          <h2 class="display" id="plataforma-title">Fila, CRM e reunião na mesma tela do atendente.</h2>
+        </div>
+        <p class="sub">Telas reais do sistema. Dados de exemplo.</p>
+      </div>
+
+      <div class="viewer reveal" id="telas" data-viewer data-spy data-spy-id="atendimento">
+        <div class="vtabs" role="tablist" aria-label="Telas do sistema">
+          <button type="button" role="tab" id="tab-fila" aria-controls="panel-fila" aria-selected="true" data-key="atendimento">Fila</button>
+          <button type="button" role="tab" id="tab-relatorios" aria-controls="panel-relatorios" aria-selected="false" tabindex="-1" data-key="painel">Relatórios</button>
+          <button type="button" role="tab" id="tab-crm" aria-controls="panel-crm" aria-selected="false" tabindex="-1" data-key="crm">CRM</button>
+          <button type="button" role="tab" id="tab-reunioes" aria-controls="panel-reunioes" aria-selected="false" tabindex="-1" data-key="reunioes">Reuniões</button>
+          <button type="button" role="tab" id="tab-robo" aria-controls="panel-robo" aria-selected="false" tabindex="-1" data-key="robo">Robô</button>
+        </div>
+        <div class="vstage">
+          <div class="vpanel" role="tabpanel" id="panel-fila" aria-labelledby="tab-fila">
+            <div class="vcap"><h3>Quem espera, há quanto tempo, com quem.</h3><p>Mensagens novas e transferências chegando. O atendente aceita ou recusa.</p></div>
+            <div class="vshot">
+              <button class="zoom" type="button" data-zoom data-full="images/tela-fila.webp" data-title="Fila" aria-label="Ampliar a tela: Fila">
+                <img src="images/tela-fila.webp" width="2040" height="1230" loading="lazy" alt="Fila de atendimento do Heya!Chat, com conversas, tempo de espera e quem atende. Dados de exemplo.">
+                <span class="hint" aria-hidden="true"><svg class="icon"><use href="#i-zoom"/></svg>Ampliar</span>
+              </button>
+            </div>
+          </div>
+          <div class="vpanel" role="tabpanel" id="panel-relatorios" aria-labelledby="tab-relatorios" hidden>
+            <div class="vcap"><h3>Quem atendeu quanto, e em quanto tempo.</h3><p>Atendimentos recebidos, primeira resposta, resolução, ranking e fila em tempo real.</p></div>
+            <div class="vshot">
+              <button class="zoom" type="button" data-zoom data-full="images/tela-relatorios.webp" data-title="Relatórios" aria-label="Ampliar a tela: Relatórios">
+                <img src="images/tela-relatorios.webp" width="2040" height="1230" loading="lazy" alt="Relatórios do Heya!Chat com volume, primeira resposta, resolução e ranking. Dados de exemplo.">
+                <span class="hint" aria-hidden="true"><svg class="icon"><use href="#i-zoom"/></svg>Ampliar</span>
+              </button>
+            </div>
+          </div>
+          <div class="vpanel" role="tabpanel" id="panel-crm" aria-labelledby="tab-crm" hidden>
+            <div class="vcap"><h3>O funil acompanha a conversa.</h3><p>Lead, em conversa, proposta, fechado.</p></div>
+            <div class="vshot">
+              <button class="zoom" type="button" data-zoom data-full="images/tela-crm.webp" data-title="CRM" aria-label="Ampliar a tela: CRM">
+                <img src="images/tela-crm.webp" width="2040" height="730" loading="lazy" alt="Funil de CRM do Heya!Chat com as etapas lead, em conversa, proposta e fechado. Dados de exemplo.">
+                <span class="hint" aria-hidden="true"><svg class="icon"><use href="#i-zoom"/></svg>Ampliar</span>
+              </button>
+            </div>
+          </div>
+          <div class="vpanel" role="tabpanel" id="panel-reunioes" aria-labelledby="tab-reunioes" hidden>
+            <div class="vcap"><h3>A chamada sem sair do atendimento.</h3><p>Agenda e sala de vídeo.</p></div>
+            <div class="vshot">
+              <button class="zoom" type="button" data-zoom data-full="images/tela-calendario.webp" data-title="Reuniões" aria-label="Ampliar a tela: Reuniões">
+                <img src="images/tela-calendario.webp" width="2040" height="1230" loading="lazy" alt="Calendário de reuniões do Heya!Chat, com agenda e horários. Dados de exemplo.">
+                <span class="hint" aria-hidden="true"><svg class="icon"><use href="#i-zoom"/></svg>Ampliar</span>
+              </button>
+            </div>
+          </div>
+          <div class="vpanel" role="tabpanel" id="panel-robo" aria-labelledby="tab-robo" hidden>
+            <div class="vcap"><h3>Atende até a hora de chamar uma pessoa.</h3><p>Módulo opcional. Fluxo visual com nós e ligações e transferência para atendimento humano.</p></div>
+            <div class="vshot">
+              <div class="board">
+                <div class="nodes">
+                  <div class="node">Início</div>
+                  <span class="link"></span>
+                  <div class="node">Saudação</div>
+                  <span class="link"></span>
+                  <div class="node">Menu<small>Financeiro · Entregas · Grupos</small></div>
+                  <span class="link"></span>
+                  <div class="node hot">Atendente<small>transferido</small></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec light" id="whatsapp" data-spy aria-labelledby="whatsapp-title">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="kicker">WhatsApp</p>
+        <h2 class="display" id="whatsapp-title">Quem sai da empresa não leva o WhatsApp.</h2>
+        <p class="sub wa-lede">O número é da empresa. Para abrir conversa no WhatsApp oficial, o time usa um modelo aprovado, e o cliente recebe pelo número da empresa.</p>
+      </div>
+      <div class="wa-grid">
+        <article class="wa-card hov reveal">
+          <h3>API oficial da Meta</h3>
+          <ul class="checks">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Login OAuth, seleção do número e configuração do perfil comercial.</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Gerenciamento de modelos de mensagem.</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Webhooks de mensagens recebidas, status e reações.</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Finalização automática e aviso para mensagens sem resposta.</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Sincronização do histórico e envio de mídia.</li>
+          </ul>
+        </article>
+        <aside class="wa-card wa-aside hov reveal">
+          <h3>Dois modos de conexão, um por organização</h3>
+          <p>Os modos API oficial e QR code são mutuamente exclusivos dentro da mesma organização.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="perfis" aria-labelledby="perfis-title">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="kicker">Perfis de acesso</p>
+        <h2 class="display" id="perfis-title">Atendente atende. Supervisor enxerga o time.</h2>
+      </div>
+      <div class="roles">
+        <article class="role hov reveal"><h3>Cliente</h3><p>Vê somente a lista das próprias conversas.</p></article>
+        <article class="role hov reveal"><h3>Atendente</h3><p>Acessa conversas, equipe, CRM e reuniões; pode iniciar uma nova conversa.</p></article>
+        <article class="role hov reveal"><h3>Supervisor</h3><p>Tem as permissões do atendente, mais painel, relatórios e configuração do WhatsApp.</p></article>
+        <article class="role hov reveal"><h3>Coordenador</h3><p>Tem as do supervisor, mais o robô (quando o módulo está ativo) e a aprovação de leads.</p></article>
+        <article class="role hov reveal"><h3>Painel</h3><p>Perfil para a tela de TV do atendimento, inclusive com dados de várias organizações.</p></article>
+      </div>
+      <p class="note reveal">Robô só aparece se o módulo estiver ativo na organização.</p>
+      <div class="admin reveal">
+        <p class="kicker">Administração</p>
+        <h3 id="admin-title">Várias organizações. Módulos sob medida.</h3>
+        <ul class="checks cols">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Criar, editar, ativar, suspender e excluir organizações.</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Usuários, departamentos e permissões.</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Troca de organização para quem acessa mais de uma.</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Monitoramento, histórico de acessos e suporte de WhatsApp.</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Mesclar chats duplicados e tratar contatos fantasma.</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Sincronizar o acervo do WhatsApp.</li>
+        </ul>
+        <h4>Do seu jeito</h4>
+        <p class="sub">Tema claro ou escuro, foto, cores das bolhas e do texto, cor ou imagem de fundo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec light" id="faq" data-spy aria-labelledby="faq-title">
+    <div class="wrap faq-wrap">
+      <h2 class="display reveal" id="faq-title">O que costumam perguntar antes de começar.</h2>
+      <div class="faq-list reveal">
+        <details name="faq" class="hov" open>
+          <summary>Posso usar o QR code e a API oficial ao mesmo tempo? <svg class="icon chev" aria-hidden="true"><use href="#i-arrow"/></svg></summary>
+          <p>Não. Os dois modos são mutuamente exclusivos dentro de uma mesma organização.</p>
+        </details>
+        <details name="faq" class="hov">
+          <summary>O que é um modelo oficial? <svg class="icon chev" aria-hidden="true"><use href="#i-arrow"/></svg></summary>
+          <p>Para abrir conversa no WhatsApp oficial, o time usa um modelo de mensagem aprovado. O cliente recebe pelo número da empresa.</p>
+        </details>
+        <details name="faq" class="hov">
+          <summary>CRM, robô e extensão do chat vêm em toda organização? <svg class="icon chev" aria-hidden="true"><use href="#i-arrow"/></svg></summary>
+          <p>São módulos opcionais, ativados por organização.</p>
+        </details>
+        <details name="faq" class="hov">
+          <summary>O cliente vê conversas de outras pessoas? <svg class="icon chev" aria-hidden="true"><use href="#i-arrow"/></svg></summary>
+          <p>Não. O perfil Cliente vê somente a lista das próprias conversas.</p>
+        </details>
+        <details name="faq" class="hov">
+          <summary>Quem pode ver relatórios e configurar o WhatsApp? <svg class="icon chev" aria-hidden="true"><use href="#i-arrow"/></svg></summary>
+          <p>Supervisores e perfis acima (coordenador).</p>
+        </details>
+        <details name="faq" class="hov">
+          <summary>Dá para acompanhar mais de uma organização? <svg class="icon chev" aria-hidden="true"><use href="#i-arrow"/></svg></summary>
+          <p>Sim: troca de organização para quem tem acesso a mais de uma, e o painel para TV consolida várias.</p>
+        </details>
+        <details name="faq" class="hov">
+          <summary>O histórico fica no celular de quem atendeu? <svg class="icon chev" aria-hidden="true"><use href="#i-arrow"/></svg></summary>
+          <p>Não. A conversa fica na conta da empresa, e quem atende pode mudar sem perder o fio.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" id="contato" aria-labelledby="contato-title">
+    <div class="wrap">
+      <h2 class="display" id="contato-title"><span class="ln">Nenhuma conversa</span> <span class="ln">fica no celular</span> <span class="ln">de alguém.</span></h2>
+      <p>Entre com a sua conta para abrir a central.</p>
+      <div class="cta">
+        <a class="btn btn-p" href="https://app.heyachat.com.br">Entrar na plataforma <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <ul class="strip">
+        <li><span class="ic" aria-hidden="true"><svg class="icon"><use href="#i-shield"/></svg></span><div><b>Conexão oficial</b><small>Números ligados pela conexão oficial com o WhatsApp.</small></div></li>
+        <li><span class="ic" aria-hidden="true"><svg class="icon"><use href="#i-queue"/></svg></span><div><b>Fila única</b><small>Todas as conversas num lugar, com status e prioridade.</small></div></li>
+        <li><span class="ic" aria-hidden="true"><svg class="icon"><use href="#i-archive"/></svg></span><div><b>Histórico na conta</b><small>A conversa fica com a empresa, não com uma pessoa.</small></div></li>
+        <li><span class="ic" aria-hidden="true"><svg class="icon"><use href="#i-chart"/></svg></span><div><b>Relatórios ao vivo</b><small>Volume, tempo de resposta e ranking do time.</small></div></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#inicio">
+      <img src="images/logo-mark.png" alt="" width="64" height="64">
+      <span>HEYA<b>!</b>CHAT</span>
+    </a>
+    <p>Vários números. Uma central.</p>
+    <p>© 2026 HEYA!CHAT</p>
+  </div>
+</footer>
+
+<dialog class="lb" data-lb aria-label="Tela ampliada">
+  <button class="lb-x" type="button" data-lb-close aria-label="Fechar"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+  <div class="lb-scroll" data-lb-scroll><img alt="" width="2040" height="1230"></div>
+  <p class="lb-cap" data-lb-cap></p>
+</dialog>
+
+<script src="js/core.js" defer></script>
+<script src="js/nav.js" defer></script>
+<script src="js/motion.js" defer></script>
+<script src="js/switch.js" defer></script>
+<script src="js/viewer.js" defer></script>
+<script src="js/hover.js" defer></script>
+<script src="js/hero.js" defer></script>
+</body>
+</html>
